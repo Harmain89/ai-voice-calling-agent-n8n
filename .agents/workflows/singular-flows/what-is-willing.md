@@ -1,0 +1,2 @@
+- so now let me know that what is he willing to say?
+- but first understand the project flow or context completely with 100% accuracy for you.
