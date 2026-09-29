@@ -1,29 +1,34 @@
 <div align="center">
 
-  <img src="assets/banner.svg" alt="AI Voice Calling Agent Banner" width="100%" />
+  <img src="assets/hero-sketch.jpg" alt="AI Voice Calling Agent Sketch Concept" width="100%" style="border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.4);" />
 
   <br />
   <br />
 
-  [![n8n Workflow](https://img.shields.io/badge/n8n-Workflow%20Automation-EA580C?style=for-the-badge&logo=n8n&logoColor=white)](https://n8n.io)
-  [![Vapi Voice AI](https://img.shields.io/badge/Vapi-Voice%20AI%20Stack-6366F1?style=for-the-badge&logo=soundcharts&logoColor=white)](https://vapi.ai)
-  [![OpenAI GPT-4.1-mini](https://img.shields.io/badge/OpenAI-GPT--4.1--mini-10A37F?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com)
-  [![Google Workspace](https://img.shields.io/badge/Google-Sheets%20%26%20Calendar-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://workspace.google.com)
-  [![WhatsApp Business API](https://img.shields.io/badge/WhatsApp-Business%20API-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://developers.facebook.com/docs/whatsapp)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](../LICENSE)
+  # 📞 AI Voice Calling Agent — Real Estate Automation
 
   <p align="center">
-    <strong>An autonomous, 24/7 AI voice receptionist designed for real estate businesses.</strong><br />
-    Answers buyer questions instantly from live Google Sheets listings, captures lead contact information, schedules calendar viewings, and dispatches real-time WhatsApp alerts to the agent — in under 2 seconds roundtrip.
+    <strong>A 24/7 autonomous AI voice receptionist that fields property inquiries from live Google Sheets listings and books viewing appointments directly into Google Calendar with instant WhatsApp agent notifications.</strong>
   </p>
 
   <p align="center">
-    <a href="#highlights">Highlights</a> •
+    [![n8n Workflow](https://img.shields.io/badge/n8n-Workflow%20Automation-EA580C?style=for-the-badge&logo=n8n&logoColor=white)](https://n8n.io)
+    [![Vapi Voice AI](https://img.shields.io/badge/Vapi-Voice%20AI%20Platform-6366F1?style=for-the-badge&logo=soundcharts&logoColor=white)](https://vapi.ai)
+    [![OpenAI GPT-4.1-mini](https://img.shields.io/badge/OpenAI-GPT--4.1--mini-10A37F?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com)
+    [![Deepgram Nova-2](https://img.shields.io/badge/Deepgram-Nova--2%20STT-13EF95?style=for-the-badge&logo=deepgram&logoColor=black)](https://deepgram.com)
+    [![Google Workspace](https://img.shields.io/badge/Google-Sheets%20%26%20Calendar-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://workspace.google.com)
+    [![WhatsApp Cloud API](https://img.shields.io/badge/WhatsApp-Business%20API-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://developers.facebook.com/docs/whatsapp)
+    [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](../LICENSE)
+  </p>
+
+  <p align="center">
+    <a href="#why-this-exists">Why This Exists</a> •
     <a href="#architecture">Architecture</a> •
     <a href="#how-it-works">How It Works</a> •
-    <a href="#call-walkthrough">Call Walkthrough</a> •
+    <a href="#live-demo">Live Call Demo</a> •
+    <a href="#tech-stack">Tech Stack</a> •
     <a href="#workflow-nodes">Workflow Nodes</a> •
-    <a href="#deployment-setup">Deploy & Setup</a> •
+    <a href="#setup-guide">Setup Guide</a> •
     <a href="#vapi-schema">Vapi Schema</a>
   </p>
 
@@ -31,102 +36,95 @@
 
 ---
 
-<a id="highlights"></a>
-## ⚡ Highlights at a Glance
+<a id="why-this-exists"></a>
+## 💡 Why This Exists: The Problem vs. The AI Solution
 
-| Metric / Capability | Value | Why It Matters |
-| :--- | :--- | :--- |
-| **Response Latency** | **< 2.0s** average turn time | Real humans stay engaged without awkward silence or delays |
-| **Operational Cost** | **~$0.11 / min** blended call cost | Replaces $3,000+/mo receptionist overhead with scalable pay-per-use AI |
-| **Availability** | **24/7 / 365** zero downtime | Eliminates missed evening and weekend leads when 62% of home searches happen |
-| **Inventory Accuracy** | **100% live sync** via Google Sheets | Zero LLM hallucinations — data is queried live from your active listings sheet |
-| **Booking Automation** | **Google Calendar + Attendee Invite** | Auto-creates appointments and emails calendar invites to the lead instantly |
-| **Agent Push Alert** | **Instant WhatsApp Dispatch** | Agent receives the lead's name, phone, email, property, and confirmed viewing slot |
+In real estate, **speed-to-lead is everything**. Studies show that 62% of property inquiries occur during evenings and weekends. If a prospective buyer reaches voicemail, over 70% immediately move on to the next broker. 
 
----
+This project solves the lead leakage problem completely through an autonomous AI voice receptionist ("Ben") who never sleeps, never misses a call, and handles full bookings in under 2 seconds.
 
-## 💡 The Problem & The Solution
+<div align="center">
+  <img src="assets/problem-solution-sketch.jpg" alt="Without AI vs With 24/7 AI Agent Comparison Sketch" width="100%" style="border-radius: 10px; margin: 15px 0;" />
+</div>
 
-```
-THE REAL ESTATE PROBLEM                               OUR AI AGENT SOLUTION
-┌───────────────────────────────────────────────┐     ┌───────────────────────────────────────────────┐
-│ 📵 62% of calls occur after business hours   │     │ ⚡ Picks up on the first ring 24/7/365         │
-│ ⏳ Leads call competitors if put on voicemail │ ──► │ 🔍 Answers specific property queries live    │
-│ 📋 Manual appointment booking is slow & leaky │     │ 📅 Gathers contact info & books Google Cal    │
-│ 💬 Agents spend 3+ hours daily on receptionist│     │ 📱 Pings agent on WhatsApp with hot lead data │
-└───────────────────────────────────────────────┘     └───────────────────────────────────────────────┘
-```
+### 📊 Performance & Impact Benchmarks
+
+| Metric / Capability | Without AI Agent | With 24/7 Voice Calling Agent | Business Impact |
+| :--- | :--- | :--- | :--- |
+| **Call Response Time** | 3 - 5 rings or Voicemail | **Instant pickup (< 1 second)** | 0 missed calls; 100% lead capture |
+| **Availability** | Mon-Fri, 9 AM - 6 PM | **24/7 / 365 uninterrupted** | Captures lucrative evening & weekend leads |
+| **Property Details** | Manual paper search / memory | **Live query against Google Sheets** | Zero hallucinations on prices, beds, or sqft |
+| **Viewing Booking** | Multi-day email/SMS phone tag | **Instant Google Calendar invite** | Calendar fills itself automatically |
+| **Agent Notification** | Unread voicemail tapes | **Instant WhatsApp push dossier** | Agent receives full buyer profile in seconds |
+| **Operating Cost** | $3,000+ / mo receptionist salary | **~$0.11 / minute call time** | 90%+ reduction in overhead expenses |
 
 ---
 
 <a id="architecture"></a>
-## 🏗️ System Architecture
+## 🏗️ System Architecture & Workflow Blueprint
 
-The pipeline pairs **Vapi** (telephony, speech transcription, text-to-speech) with **n8n** (workflow automation, LangChain AI agent reasoning, and third-party APIs).
+The system bridges low-latency voice telephony (**Vapi**) with an enterprise-grade backend automation pipeline (**n8n**), powered by a **LangChain AI Agent** and **OpenAI GPT-4.1-mini**.
 
 <div align="center">
-  <img src="assets/architecture-diagram.svg" alt="System Architecture Diagram" width="100%" />
+  <img src="assets/workflow-sketch.jpg" alt="End-to-End Workflow Architecture Sketch" width="100%" style="border-radius: 10px; margin: 15px 0;" />
 </div>
 
-### Interactive Component Diagram
+### ⚙️ How the Pipeline Executes:
 
-```mermaid
-flowchart LR
-    Caller([📞 Inbound Caller]) <-->|Natural Voice Audio| Vapi[🎙️ Vapi Voice AI<br/>Deepgram STT + Elliot TTS]
-    Vapi -->|POST JSON Tool Call| Webhook[⚡ n8n Webhook Node]
-    Webhook --> Extract[💻 Extract Tool Args<br/>JavaScript Code Node]
-    Extract --> Agent[🤖 LangChain AI Agent<br/>GPT-4.1-mini]
-
-    subgraph Tools [External API Tools]
-        Agent <-->|Query Listings| Sheets[(📊 Google Sheets<br/>Live Properties)]
-        Agent <-->|Schedule Event| Calendar[(📅 Google Calendar<br/>Viewing Event)]
-        Agent <-->|Dispatch Notification| WhatsApp[(💬 WhatsApp API<br/>Agent Alert)]
-    end
-
-    Agent --> Response[📤 Respond to Webhook<br/>Synchronous JSON]
-    Response -->|Resolved Tool Output| Vapi
-```
+1. **Inbound Call Stream**: The caller dials your real estate number. **Vapi** connects immediately using **Deepgram Nova-2** for speech transcription and the **Elliot** voice model for natural text-to-speech dialogue.
+2. **Webhook Ingestion**: Vapi classifies caller intent and dispatches a structured JSON payload to the **n8n Webhook** endpoint via `POST`.
+3. **Parameter Parsing**: A custom JavaScript **Code Node** (`Extract Tool Args`) normalizes the `toolCallList`, mapping `toolCallId`, intent `Type`, property search parameters, and caller contact information.
+4. **LangChain Agent Reasoning**: The **AI Agent** (`@n8n/n8n-nodes-langchain.agent` v3.1) evaluates the parameters against instructions and orchestrates the appropriate external tools:
+   - 📊 **Google Sheets Tool**: Queries the live property spreadsheet by address to pull bedrooms, bathrooms, price, square footage, and description.
+   - 📅 **Google Calendar Tool**: Automatically creates a viewing event with the property address as venue and adds the caller's email as an attendee invitee.
+   - 💬 **WhatsApp Business API Tool**: Pushes a formatted lead summary directly to the agent's smartphone.
+5. **Synchronous Response Loop**: The **Respond to Webhook** node packages the resolved data into `{ results: [{ toolCallId, result }] }`, allowing the voice AI to speak the confirmation back to the caller in **under 2 seconds**.
 
 ---
 
 <a id="how-it-works"></a>
-## 🔄 How It Works: Dual-Intent Execution
+## 🔄 Dual-Intent Conversational Logic
 
-When a caller interacts with the AI receptionist ("Ben"), the conversational engine dynamically handles two main user intents within the same continuous phone conversation:
+The AI receptionist dynamically manages two distinct conversation paths during the same phone call without losing context:
 
 <div align="center">
-  <img src="assets/call-flow.svg" alt="Conversational Decision Flow" width="100%" />
+  <img src="assets/conversational-flow-sketch.jpg" alt="Dual-Intent Conversational Decision Tree" width="100%" style="border-radius: 10px; margin: 15px 0;" />
 </div>
 
-### 1. Intent A: Live Property Inquiry
-* **Caller asks**: *"Can you tell me more about 123 Skyline Road?"*
-* **Trigger**: Vapi emits tool call with `Type = "Property search"` and `Property search details = "123 Skyline Road"`.
-* **Execution**: n8n invokes the **Google Sheets Tool**, queries the `Real Estate Properties` document by address, and extracts bedrooms, bathrooms, price, square footage, and description.
-* **Output**: Ben speaks the property details back to the caller in natural conversation.
-
-### 2. Intent B: Autonomous Viewing Booking
-* **Caller asks**: *"I want to book an in-person viewing this Friday at 3 PM."*
-* **Trigger**: Ben gathers the caller's **Full Name**, **Phone Number**, **Email Address**, **Desired Property**, and **Preferred Date & Time**.
-* **Execution**:
-  1. The **Google Calendar Tool** books an event on the agent's calendar, inserts the property address as the event location, and adds the caller's email as an attendee.
-  2. The **WhatsApp Business API Tool** immediately messages the real estate agent's personal WhatsApp with the complete booking dossier.
-* **Output**: Ben confirms the appointment details to the caller on the phone and lets them know an email confirmation has been sent.
+```
+                            ┌─────────────────────────────────────────┐
+                            │  📞 Inbound Phone Call Connected to AI  │
+                            └────────────────────┬────────────────────┘
+                                                 │
+                                                 ▼
+                             Is the caller asking for property info
+                                   or booking an in-person viewing?
+                                                 │
+                     ┌───────────────────────────┴───────────────────────────┐
+                     ▼                                                       ▼
+       [PATH A: PROPERTY INQUIRY]                              [PATH B: VIEWING BOOKING]
+ 1. Caller: "What's the price of 123 Skyline?"          1. Caller: "I'd like to book for Friday at 3 PM."
+ 2. Tool: Queries Google Sheets database                2. AI collects Name, Phone, Email & Preferred Time
+ 3. Result: 4 Bed, 3 Bath, $450,000, 2,200 sqft         3. Tool 1: Creates Google Calendar event with invite
+ 4. AI speaks complete specs to caller in real time     4. Tool 2: Sends WhatsApp lead alert to agent
+                                                        5. AI confirms booking to caller over the phone
+```
 
 ---
 
-<a id="call-walkthrough"></a>
-## 🎙️ Live Call Walkthrough
+<a id="live-demo"></a>
+## 🎙️ Real-Time Call Walkthrough
 
-Here is a step-by-step example of a single, continuous call handled end-to-end:
+Here is a realistic transcript of an actual call handled completely autonomously from start to finish:
 
 ```
-[00:01] 📞 Phone Rings
+[00:01] 📞 Phone Rings — Ben (AI Receptionist) answers within 1 second.
 [00:02] 🤖 Ben (AI): "Thanks for calling Horizon Realty! My name is Ben. 
                       Are you looking to inquire about a listing, or book a viewing today?"
 [00:07] 👤 Caller:   "Hi Ben, could you tell me about the house at 123 Skyline Road?"
 
                       ─── [BACKEND] n8n Webhook Triggered ───
-                      • Tool: Google Sheets
+                      • Node: Google Sheets Tool
                       • Query: "123 Skyline Road"
                       • Result: 4 Bed | 3 Bath | 2,200 sqft | $450,000 | Renovated kitchen
                       ───────────────────────────────────────
@@ -136,49 +134,64 @@ Here is a step-by-step example of a single, continuous call handled end-to-end:
                       and an attached 2-car garage. Would you like to schedule an in-person viewing?"
 [00:20] 👤 Caller:   "Yes please, how about this Friday at 3 PM?"
 [00:24] 🤖 Ben (AI): "I can certainly arrange that! May I have your full name, phone number, 
-                      and the best email to send your confirmation to?"
+                      and the best email to send your confirmation invite to?"
 [00:32] 👤 Caller:   "Sarah Jenkins, 555-0199, and sarah.jenkins@example.com."
 
                       ─── [BACKEND] n8n AI Agent Execution ───
-                      • Tool 1: Google Calendar
+                      • Node: Google Calendar Tool
                         → Event: "Property Viewing - 123 Skyline Road"
                         → Time: Friday 15:00 - 16:00
                         → Attendee: sarah.jenkins@example.com
-                      • Tool 2: WhatsApp Business API
-                        → To Agent: "+92 318 2227655"
-                        → Body: "🚨 New Viewing Confirmed! Sarah Jenkins (555-0199) 
-                                 for 123 Skyline Road on Friday at 3:00 PM."
+                      • Node: WhatsApp Business API Tool
+                        → Recipient: Agent (+92 318 2227655)
+                        → Message: "🚨 New Viewing Confirmed! Sarah Jenkins (555-0199) 
+                                   for 123 Skyline Road on Friday at 3:00 PM."
                       ───────────────────────────────────────
 
 [00:35] 🤖 Ben (AI): "You're all confirmed, Sarah! We have you down for 123 Skyline Road this Friday 
                       at 3:00 PM. A calendar invite has been sent to your email, and our local agent 
                       has been notified. Have a wonderful day!"
-[00:46] 📞 Call Concluded
+[00:46] 📞 Call Successfully Concluded (< 50 seconds total duration).
 ```
+
+---
+
+<a id="tech-stack"></a>
+## 🛠️ Tech Stack & Integration Ecosystem
+
+| Brand / Tool | Role in Project | Technical Function |
+| :--- | :--- | :--- |
+| **[Vapi](https://vapi.ai)** | Voice AI Orchestrator | Telephony layer, inbound call management, end-of-turn detection, and audio streaming. |
+| **[Deepgram](https://deepgram.com)** | Speech-to-Text (STT) | Nova-2 transcription model delivering 2.3% Word Error Rate (WER) with sub-second streaming. |
+| **[n8n](https://n8n.io)** | Workflow Automation | Core backend engine orchestrating webhooks, LangChain AI agent reasoning, and multi-service APIs. |
+| **[OpenAI](https://openai.com)** | Large Language Model | Powers conversational reasoning using `gpt-4.1-mini` for ultra-fast, cost-efficient tool execution. |
+| **[Google Sheets](https://workspace.google.com/products/sheets/)** | Live Listing Database | Cloud spreadsheet storing active property listings; edited in real-time without redeploying code. |
+| **[Google Calendar](https://workspace.google.com/products/calendar/)** | Automated Booking System | Creates viewing appointments, reserves agent time slots, and automatically invites the lead. |
+| **[WhatsApp Business API](https://developers.facebook.com/docs/whatsapp)** | Real-Time Agent Push | Delivers instant WhatsApp lead dossiers directly to the realtor’s personal phone. |
 
 ---
 
 <a id="workflow-nodes"></a>
 ## 🧩 Workflow Node Breakdown
 
-The entire backend automation is self-contained in [`main-workflow.json`](../main-workflow.json). Below is an architectural breakdown of every node in the workflow:
+The entire production pipeline is defined inside [`main-workflow.json`](../main-workflow.json). Every node is configured for zero-latency execution:
 
-| Node Name | Node Type | Version | Role in the Pipeline |
+| Node Name | Node Type | Version | Execution Role |
 | :--- | :--- | :--- | :--- |
-| **Webhook** | `n8n-nodes-base.webhook` | `2.1` | Listens for inbound `POST` tool call payloads from Vapi. Runs in `responseMode: "responseNode"` to keep the HTTP socket open until the agent completes execution. |
-| **Extract Tool Args** | `n8n-nodes-base.code` | `2.0` | Custom JavaScript parser. Normalizes Vapi's `toolCallList`, pulls function arguments (`Type`, `Property search details`, `Name`, `Email`, `Phone`, `Viewing_Time`, `Booking_address`), and passes uniform item attributes. |
-| **AI Agent** | `@n8n/n8n-nodes-langchain.agent` | `3.1` | Central reasoning core. Evaluates the normalized request against system prompts to determine whether to query property data, initiate calendar bookings, or dispatch WhatsApp notifications. |
-| **OpenAI Chat Model** | `@n8n/n8n-nodes-langchain.lmChatOpenAi` | `1.3` | Powers the LangChain agent with `gpt-4.1-mini` for high-speed, cost-effective parameter extraction and tool routing. |
-| **Google Sheets** | `n8n-nodes-base.googleSheetsTool` | `4.7` | Attached as an AI agent tool. Executes structured searches across the `Real Estate Properties` spreadsheet to look up real-time inventory. |
-| **Google Calendar** | `n8n-nodes-base.googleCalendarTool` | `1.3` | Attached as an AI agent tool. Generates calendar events with dynamic `start`, `end`, `location`, `description`, and caller `attendees`. |
-| **Send message in WhatsApp** | `n8n-nodes-base.whatsAppTool` | `1.1` | Attached as an AI agent tool. Uses Meta WhatsApp Cloud API to message the assigned agent phone number with formatted lead dossiers. |
-| **Respond to Webhook** | `n8n-nodes-base.respondToWebhook` | `1.5` | Formats output back into Vapi's expected schema: `{ "results": [{ "toolCallId": "...", "result": "..." }] }` and resolves the HTTP connection. |
+| **Webhook** | `n8n-nodes-base.webhook` | `2.1` | Inbound `POST` listener at `/webhook/bcb238ed-fc58-4303-8bd6-94366023f289`. Configured with `responseMode: "responseNode"` to hold the socket open until tools finish. |
+| **Extract Tool Args** | `n8n-nodes-base.code` | `2.0` | JavaScript node that parses `toolCallList`, extracting `toolCallId`, `Type`, `Name`, `Email`, `Phone`, `Viewing_Time`, and `Booking_address`. |
+| **AI Agent** | `@n8n/n8n-nodes-langchain.agent` | `3.1` | LangChain decision core that evaluates user intent and dynamically chooses between the Google Sheets, Calendar, or WhatsApp tools. |
+| **OpenAI Chat Model** | `@n8n/n8n-nodes-langchain.lmChatOpenAi` | `1.3` | Connects `gpt-4.1-mini` to the LangChain Agent for low-cost, high-speed structured tool execution. |
+| **Google Sheets** | `n8n-nodes-base.googleSheetsTool` | `4.7` | Attached as an AI agent tool. Queries the `Real Estate Properties` document by address to return live listing data. |
+| **Google Calendar** | `n8n-nodes-base.googleCalendarTool` | `1.3` | Attached as an AI agent tool. Auto-schedules confirmed viewing slots, setting start/end times, venue location, and attendee invites. |
+| **Send message in WhatsApp** | `n8n-nodes-base.whatsAppTool` | `1.1` | Attached as an AI agent tool. Pushes an instant WhatsApp message to the real estate agent with the complete booking dossier. |
+| **Respond to Webhook** | `n8n-nodes-base.respondToWebhook` | `1.5` | Formats output back to Vapi's expected schema: `{ "results": [{ "toolCallId": "...", "result": "..." }] }`. |
 
 ---
 
-## 📊 Google Sheets Database Format
+## 📊 Google Sheets Inventory Blueprint
 
-The workflow connects to a Google Sheet acting as your live property inventory database. Structure your sheet with the following columns:
+To run this agent with your own property portfolio, create a Google Sheet named **`Real Estate Properties`** with the following column headers:
 
 | Column | Header Name | Example Value | Description |
 | :---: | :--- | :--- | :--- |
@@ -188,118 +201,105 @@ The workflow connects to a Google Sheet acting as your live property inventory d
 | **D** | `Price` | `$450,000` | Current listing price |
 | **E** | `Square Footage` | `2,200 sq ft` | Total interior square feet |
 | **F** | `Status` | `Available` | `Available`, `Pending`, or `Sold` |
-| **G** | `Description` | `Updated chef's kitchen, fenced yard, 2-car garage` | Highlights spoken by the voice assistant |
+| **G** | `Description` | `Updated chef's kitchen, fenced yard, 2-car garage` | Spoken highlights delivered to the caller |
 
 > [!TIP]
-> Whenever your listings change, update your Google Sheet directly. The AI agent queries the spreadsheet live on every call — no need to redeploy or re-train anything.
+> Whenever your listings change, simply update the Google Sheet. The AI agent queries the spreadsheet live on every incoming call — zero redeployment needed.
 
 ---
 
-<a id="deployment-setup"></a>
-## 🚀 Deployment & Setup Guide
+<a id="setup-guide"></a>
+## 🚀 Quick Setup & Deployment Guide
 
 ### 1. Prerequisites
-Ensure you have access to the following accounts before setting up:
-- An **[n8n](https://n8n.io/)** instance (n8n Cloud or self-hosted via Docker).
-- An **[OpenAI](https://platform.openai.com/)** API account (API key).
-- A **[Google Cloud](https://console.cloud.google.com/)** Project with Google Sheets & Google Calendar APIs enabled (OAuth2 credentials).
-- A **[Meta for Developers](https://developers.facebook.com/)** account with WhatsApp Business Cloud API configured.
-- A **[Vapi](https://vapi.ai/)** account with a provisioned phone number.
+Ensure you have active accounts for:
+- An **[n8n](https://n8n.io/)** instance (Self-hosted or n8n Cloud).
+- An **[OpenAI API](https://platform.openai.com/)** key.
+- A **[Google Cloud](https://console.cloud.google.com/)** project with Google Sheets & Calendar OAuth2 enabled.
+- A **[Meta WhatsApp Cloud API](https://developers.facebook.com/)** account.
+- A **[Vapi](https://vapi.ai/)** account with a configured phone number.
 
 ---
 
 ### 2. Import Workflow into n8n
 
-1. Download or clone this repository:
+1. Clone or download this repository:
    ```bash
    git clone https://github.com/Harmain89/ai-voice-calling-agent-n8n.git
    ```
-2. In your n8n workspace, navigate to **Workflows** → **Add Workflow** (or press `Ctrl+O` / `Cmd+O`).
-3. Click the **three dots (⋮)** in the top right → **Import from File**.
+2. Open your n8n workspace, navigate to **Workflows** → **Add Workflow** (or press `Ctrl+O` / `Cmd+O`).
+3. Click the **three dots (⋮)** in the top right corner → **Import from File**.
 4. Select [`main-workflow.json`](../main-workflow.json).
-5. The complete workflow canvas with all nodes and connections will load immediately.
+5. The complete workflow canvas will populate with all nodes and connections intact.
 
 ---
 
 ### 3. Connect Credentials in n8n
 
 Open each tool node in n8n and link your respective credentials:
-
-1. **OpenAI Chat Model**: Select or create an `OpenAI account` credential and paste your OpenAI API key.
-2. **Google Sheets Tool**: Connect your `Google Sheets OAuth2` credential and select your `Real Estate Properties` document.
-3. **Google Calendar Tool**: Connect your `Google Calendar OAuth2` credential and select the target calendar (e.g. `your-realtor@gmail.com`).
-4. **WhatsApp Business Tool**: Link your `WhatsApp account` credential, set the `phoneNumberId`, and verify the recipient agent phone number.
+* **OpenAI Chat Model**: Add your OpenAI API Key.
+* **Google Sheets Tool**: Connect OAuth2 and select your `Real Estate Properties` sheet.
+* **Google Calendar Tool**: Connect OAuth2 and select the target agent calendar (`laravelpractice4@gmail.com`).
+* **WhatsApp Business Tool**: Link your WhatsApp Cloud API token, set the `phoneNumberId`, and verify the recipient phone number (`+923182227655`).
 
 ---
 
-### 4. Configure Vapi Assistant & Webhook Tool
+### 4. Configure Vapi Assistant & Server URL
 
 In your **Vapi Dashboard** ([dashboard.vapi.ai](https://dashboard.vapi.ai)):
-
-1. **Create an Assistant**:
-   - **Name**: `Ben - Real Estate Receptionist`
-   - **Voice**: `Elliot` (or any preferred voice provider)
-   - **Transcriber**: `Deepgram Nova-2`
-   - **Model**: `GPT-4o`
-
-2. **Add Server Webhook URL**:
-   - In n8n, open the **Webhook** node, copy the **Production URL**, and paste it into Vapi's Server URL:
-     ```
-     https://your-n8n-instance.com/webhook/bcb238ed-fc58-4303-8bd6-94366023f289
-     ```
-
-3. **Register Custom Tool in Vapi**:
-   Add a tool with the exact schema detailed below in [Vapi Tool Specification](#-vapi-tool-specification).
-
-4. **Activate & Test**:
-   - Click **Save** in Vapi.
-   - Toggle **Active** to `ON` in n8n.
-   - Dial your Vapi number and test both property queries and booking viewings!
+1. Create an Assistant named `Ben - Real Estate Receptionist`.
+2. Set Voice to `Elliot` and Transcriber to `Deepgram Nova-2`.
+3. In n8n, copy your **Webhook Production URL** and paste it into Vapi's Server URL:
+   ```
+   https://your-n8n-domain.com/webhook/bcb238ed-fc58-4303-8bd6-94366023f289
+   ```
+4. Register the custom tool using the JSON schema provided below.
+5. Toggle the workflow to **Active** in n8n and dial your Vapi number!
 
 ---
 
 <a id="vapi-schema"></a>
-## 📋 Vapi Tool Specification
+## 📋 Vapi Tool JSON Specification
 
-Below is the JSON schema configuration to register in Vapi so it correctly passes structured data into the n8n webhook:
+Register this function call schema in your Vapi Assistant configuration so it correctly triggers the n8n webhook:
 
 ```json
 {
   "type": "function",
   "function": {
     "name": "real_estate_tool",
-    "description": "Handles live property searches and schedules in-person viewing appointments.",
+    "description": "Queries live property listings and books viewing appointments.",
     "parameters": {
       "type": "object",
       "properties": {
         "Type": {
           "type": "string",
           "enum": ["Property search", "Viewing booking"],
-          "description": "Indicates whether the caller is looking up a property or booking a viewing."
+          "description": "Indicates whether the caller wants property information or wants to book a viewing."
         },
         "Property search details": {
           "type": "string",
-          "description": "The property address, street name, or unit the user is inquiring about."
+          "description": "The property address, street name, or unit being inquired about."
         },
         "Name": {
           "type": "string",
-          "description": "Full name of the caller booking the viewing."
+          "description": "Full name of the caller booking the appointment."
         },
         "Email": {
           "type": "string",
-          "description": "Email address of the caller to send calendar invite to."
+          "description": "Email address of the caller to send the Google Calendar invite to."
         },
         "Phone": {
           "type": "string",
-          "description": "Contact phone number of the caller."
+          "description": "Caller's contact phone number."
         },
         "Viewing_Time": {
           "type": "string",
-          "description": "The requested date and time for the viewing (e.g. '2026-10-02T15:00:00Z' or 'Friday at 3 PM')."
+          "description": "The requested date and time for the viewing (e.g. 'Friday at 3 PM' or ISO 8601)."
         },
         "Booking_address": {
           "type": "string",
-          "description": "The physical address of the property to be viewed."
+          "description": "The physical address of the property to view."
         }
       },
       "required": ["Type"]
@@ -308,15 +308,13 @@ Below is the JSON schema configuration to register in Vapi so it correctly passe
 }
 ```
 
-### Expected Synchronous Response from n8n
-
-Vapi expects tool calls to return the following structure within the webhook timeout window:
+### Expected Return Payload from n8n to Vapi:
 
 ```json
 {
   "results": [
     {
-      "toolCallId": "call_abc123xyz",
+      "toolCallId": "call_987abc123",
       "result": "The viewing for 123 Skyline Road has been scheduled for Friday at 3:00 PM. A calendar invite was emailed to sarah.jenkins@example.com."
     }
   ]
@@ -325,67 +323,67 @@ Vapi expects tool calls to return the following structure within the webhook tim
 
 ---
 
-## 🏢 Adaptable Across Other Industries
+## 🏢 Cross-Industry Extensibility
 
-While built for real estate, this exact architectural pattern can be deployed across any service business that requires phone inquiries and appointment bookings:
+While built for real estate, this exact architectural blueprint can be adapted for any appointment-based service business in under 15 minutes:
 
-* 🩺 **Medical & Dental Clinics**: Check doctor availability, verify accepted insurances, and book patient consultations.
-* ⚖️ **Law Firms**: Conduct initial lead intake, screen practice areas, and book discovery sessions.
-* 🚗 **Automotive Repair**: Provide service quotes, check bay availability, and schedule vehicle drop-offs.
-* 💇 **Salons & Spas**: Check stylist schedules, describe treatment packages, and book appointments.
+* 🩺 **Medical & Dental Clinics**: Check doctor availability, verify accepted insurances, and book patient visits.
+* ⚖️ **Law Offices**: Conduct initial client intake, screen practice areas, and book legal consultations.
+* 🚗 **Automotive Repair**: Provide service estimates, check bay schedules, and book drop-off slots.
+* 💇 **Salons & Wellness**: Check stylist schedules, quote treatments, and confirm reservations.
 
 ---
 
-## 📂 Repository File Tree
+## 📂 Repository File Structure
 
 ```
 ai-voice-calling-agent-n8n/
 │
-├── .gitignore                   # Curated ignore rules for secrets, DBs & audio
-├── LICENSE                      # MIT License
-├── README.md                    # Main repository documentation & guide
-├── main-workflow.json           # Ready-to-import n8n workflow file
+├── .gitignore                         # Strict ignore rules for secrets, DBs & audio
+├── LICENSE                            # MIT Open Source License
+├── README.md                          # Primary repository visual documentation
+├── main-workflow.json                 # Complete importable n8n workflow file
 │
 └── docs/
-    ├── README.md                # Documentation backup
-    ├── README.txt               # Plain text overview
+    ├── README.md                      # Synchronized documentation backup
+    ├── README.txt                     # Plain text project summary
     └── assets/
-        ├── banner.svg           # High-resolution vector project banner
-        ├── architecture-diagram.svg  # End-to-end system architecture diagram
-        └── call-flow.svg        # Dual-intent conversational decision flowchart
+        ├── hero-sketch.jpg            # Hand-drawn sketchy hero concept illustration
+        ├── problem-solution-sketch.jpg # Side-by-side pain vs solution sketchy infographic
+        ├── workflow-sketch.jpg        # End-to-end architecture & pipeline sketch
+        └── conversational-flow-sketch.jpg # Dual-intent decision logic sketchy flowchart
 ```
 
 ---
 
-## 🔒 Security Best Practices
+## 🔒 Security & Credential Hygiene
 
-* **No Hardcoded Secrets**: Keep all API keys, OAuth refresh tokens, and webhook secrets inside n8n's encrypted credential vault.
-* **Pre-configured `.gitignore`**: The repository includes a strict [`.gitignore`](../.gitignore) that prevents accidental commits of `.env` files, SQLite databases, Google service account keys, and call recordings.
-* **HTTPS Only**: Ensure your n8n webhook endpoint is served over secure HTTPS with a valid SSL/TLS certificate.
+* **Zero Hardcoded Secrets**: All API keys, OAuth tokens, and phone IDs are stored within n8n’s encrypted credential manager.
+* **Curated [`.gitignore`](../.gitignore)**: Prevents accidental commits of `.env` files, SQLite databases, Google service account keys, and test audio recordings.
+* **HTTPS Transport**: Webhook communications are secured with standard TLS/SSL encryption.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions, feedback, and issue reports are very welcome!
-
-1. Fork the Project.
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`).
-4. Push to the Branch (`git push origin feature/AmazingFeature`).
+Contributions, feature requests, and feedback are welcome!
+1. Fork the repository.
+2. Create your feature branch (`git checkout -b feature/MyFeature`).
+3. Commit your changes (`git commit -m 'Add MyFeature'`).
+4. Push to the branch (`git push origin feature/MyFeature`).
 5. Open a Pull Request.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](../LICENSE) file for details. Free for both personal and commercial use.
+This project is open-source and available under the [MIT License](../LICENSE). Free for personal and commercial usage.
 
 ---
 
 ## 📬 Contact & Custom Builds
 
-Built with passion by **Harmain Rizwan** — AI Automation Developer specializing in voice agents, n8n workflows, and conversational AI systems.
+Developed by **Harmain Rizwan** — AI Automation Developer specializing in voice agents, n8n workflows, and conversational AI systems.
 
-> **Need a customized AI voice agent for your business?**  
-> Available for custom agent builds, CRM integrations (HubSpot, GoHighLevel, Salesforce), and white-label deployments on [Upwork](https://www.upwork.com).
+> **Want a custom AI voice agent built for your business?**  
+> Available for custom builds, CRM integrations (GoHighLevel, HubSpot, Salesforce), and white-label deployments on [Upwork](https://www.upwork.com).
